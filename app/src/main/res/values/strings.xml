@@ -1,3 +1,33 @@
 <resources>
     <string name="app_name">Taskly</string>
+    <string name="inbox">Inbox</string>
+    <string name="today">Today</string>
+    <string name="upcoming">Upcoming</string>
+    <string name="browse">Browse</string>
+    <string name="projects">Projects</string>
+    <string name="labels">Labels</string>
+    <string name="filters">Filters</string>
+    <string name="search">Search</string>
+    <string name="settings">Settings</string>
+    <string name="add_task">Add task</string>
+    <string name="task_title_hint">e.g. Call client tomorrow 3pm #Work p1 @call</string>
+    <string name="plan_my_day">Plan My Day</string>
+    <string name="ai_assistant">AI Assistant</string>
+    <string name="breakdown_with_ai">Break down with AI</string>
+    <string name="complete">Complete</string>
+    <string name="snooze">Snooze 15m</string>
+    <string name="reschedule">Reschedule</string>
+    <string name="delete">Delete</string>
+    <string name="cancel">Cancel</string>
+    <string name="save">Save</string>
+    <string name="undo">Undo</string>
+    <string name="sync_now">Sync now</string>
+    <string name="synced">Synced</string>
+    <string name="syncing">Syncing&#8230;</string>
+    <string name="offline">Offline</string>
+    <string name="error">Sync error</string>
+    <string name="reminders_channel_name">Task Reminders</string>
+    <string name="reminders_channel_desc">Notifications for scheduled task reminders and due dates</string>
+    <string name="digest_channel_name">Daily Digest</string>
+    <string name="digest_channel_desc">Daily morning overview of today\'s tasks</string>
 </resources>

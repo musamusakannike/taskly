@@ -1,0 +1,117 @@
+{
+  "entities": {
+    "Project": {
+      "title": "Project",
+      "description": "A project folder that contains tasks and nested subprojects",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "userId": { "type": "string" },
+        "name": { "type": "string" },
+        "parentId": { "type": "string" },
+        "colorHex": { "type": "string" },
+        "iconName": { "type": "string" },
+        "isFavorite": { "type": "boolean" },
+        "isArchived": { "type": "boolean" },
+        "isInbox": { "type": "boolean" },
+        "sortOrder": { "type": "integer" },
+        "isDeleted": { "type": "boolean" },
+        "updatedAt": { "type": "integer" }
+      },
+      "required": ["id", "userId", "name"]
+    },
+    "Task": {
+      "title": "Task",
+      "description": "A task or subtask item",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "userId": { "type": "string" },
+        "projectId": { "type": "string" },
+        "parentTaskId": { "type": "string" },
+        "title": { "type": "string" },
+        "description": { "type": "string" },
+        "priority": { "type": "integer" },
+        "dueDate": { "type": "integer" },
+        "dueTimeMinutes": { "type": "integer" },
+        "isAllDay": { "type": "boolean" },
+        "recurrenceRule": { "type": "string" },
+        "isCompleted": { "type": "boolean" },
+        "completedAt": { "type": "integer" },
+        "estimatedMinutes": { "type": "integer" },
+        "orderIndex": { "type": "integer" },
+        "labelIds": { "type": "array" },
+        "isDeleted": { "type": "boolean" },
+        "updatedAt": { "type": "integer" }
+      },
+      "required": ["id", "userId", "title"]
+    },
+    "Label": {
+      "title": "Label",
+      "description": "Tag or label applied to tasks",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "userId": { "type": "string" },
+        "name": { "type": "string" },
+        "colorHex": { "type": "string" },
+        "isDeleted": { "type": "boolean" },
+        "updatedAt": { "type": "integer" }
+      },
+      "required": ["id", "userId", "name"]
+    },
+    "Comment": {
+      "title": "Comment",
+      "description": "Timestamped comment on a task",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "userId": { "type": "string" },
+        "taskId": { "type": "string" },
+        "content": { "type": "string" },
+        "authorName": { "type": "string" },
+        "authorEmail": { "type": "string" },
+        "createdAt": { "type": "integer" }
+      },
+      "required": ["id", "userId", "taskId", "content"]
+    },
+    "Attachment": {
+      "title": "Attachment",
+      "description": "Attached file reference",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "userId": { "type": "string" },
+        "taskId": { "type": "string" },
+        "name": { "type": "string" },
+        "fileUri": { "type": "string" },
+        "mimeType": { "type": "string" },
+        "sizeBytes": { "type": "integer" },
+        "createdAt": { "type": "integer" }
+      },
+      "required": ["id", "userId", "taskId", "name", "fileUri"]
+    }
+  },
+  "firestore": {
+    "/users/{userId}/projects/{projectId}": {
+      "schema": { "$ref": "#/entities/Project" },
+      "description": "User projects and nested subprojects"
+    },
+    "/users/{userId}/tasks/{taskId}": {
+      "schema": { "$ref": "#/entities/Task" },
+      "description": "User tasks and recursive subtasks"
+    },
+    "/users/{userId}/labels/{labelId}": {
+      "schema": { "$ref": "#/entities/Label" },
+      "description": "User custom labels"
+    },
+    "/users/{userId}/comments/{commentId}": {
+      "schema": { "$ref": "#/entities/Comment" },
+      "description": "Task comments"
+    },
+    "/users/{userId}/attachments/{attachmentId}": {
+      "schema": { "$ref": "#/entities/Attachment" },
+      "description": "Task file and image attachments"
+    }
+  }
+}
