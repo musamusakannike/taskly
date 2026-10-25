@@ -1,0 +1,6 @@
+{
+  "name": "Taskly",
+  "description": "AI-powered task and project manager with offline-first synchronization, subtasks, smart daily planning, and natural language quick entry.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
