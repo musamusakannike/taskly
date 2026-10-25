@@ -152,7 +152,7 @@ class AiViewModel(application: Application) : AndroidViewModel(application) {
         listOf(
             AiChatMessage(
                 isFromUser = false,
-                text = "Hi! I'm Taskly AI. Ask me about what's due, completed tasks, or ask me to reschedule or create projects for you."
+                text = "👋 **Welcome to Taskly AI!**\n\nI can help you manage and organize your schedule:\n- **Check agenda:** *\"What's due this week?\"*\n- **Batch reschedule:** *\"Move overdue tasks to tomorrow\"*\n- **Plan projects:** *\"Create a project for Product Launch with 4 tasks\"*\n\nAsk a question or tap a quick prompt below!"
             )
         )
     )

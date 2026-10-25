@@ -67,10 +67,11 @@ object AiChatAssistant {
             ${tasksContext.toString()}
 
             You can answer questions ("What is due this week?", "What did I complete?") and take action commands ("Move work tasks due today to tomorrow", "Create a project for Japan Trip with 5 tasks").
+            Format your "reply" in clean, aesthetic Markdown using bolding (**text**), bullet points (- item), numbered lists (1. item), inline code (`code`), or section headings (## Heading) for maximum readability.
             Whenever an action is commanded by the user, you MUST return a structured proposed action in JSON so the user can review and approve it via a confirmation card before it runs.
             Return a JSON object:
             {
-              "reply": "Your clear, friendly answer to the user",
+              "reply": "Your clear, friendly answer to the user in formatted markdown",
               "action": {
                 "actionType": "RESCHEDULE_TASKS" | "CREATE_PROJECT" | "CREATE_TASK" | "COMPLETE_TASKS",
                 "title": "Short title of action",

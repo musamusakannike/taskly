@@ -21,6 +21,7 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
+import com.example.ui.components.MarkdownView
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.AutoAwesome
 import androidx.compose.material.icons.filled.Check
@@ -270,12 +271,20 @@ private fun ChatMessageBubble(
             color = if (isUser) TasklyRed else MaterialTheme.colorScheme.surface,
             tonalElevation = if (isUser) 0.dp else 1.dp
         ) {
-            Text(
-                text = message.text,
-                style = MaterialTheme.typography.bodyMedium,
-                color = if (isUser) Color.White else MaterialTheme.colorScheme.onSurface,
-                modifier = Modifier.padding(14.dp)
-            )
+            if (isUser) {
+                Text(
+                    text = message.text,
+                    style = MaterialTheme.typography.bodyMedium,
+                    color = Color.White,
+                    modifier = Modifier.padding(14.dp)
+                )
+            } else {
+                MarkdownView(
+                    markdownText = message.text,
+                    textColor = MaterialTheme.colorScheme.onSurface,
+                    modifier = Modifier.padding(14.dp)
+                )
+            }
         }
 
         // Proposed Action Confirmation Card
